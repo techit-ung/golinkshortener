@@ -13,13 +13,20 @@ type ServerHandler struct {
 }
 
 func (handler ServerHandler) ServeHTTP(resWriter http.ResponseWriter, req *http.Request) {
-	url, _ := handler.UrlProvider.Get("")
-	redirect(resWriter, url)
+	trimmedPath := req.URL.Path[1:]
+	fmt.Printf("Query for %s\n", trimmedPath)
+	url, err := handler.UrlProvider.Get(trimmedPath)
+	if err == nil {
+		fmt.Printf("Redirecting for %s to %s\n", trimmedPath, url)
+		redirect(resWriter, url)
+	} else {
+		fmt.Printf("Error query for %s\n", trimmedPath)
+	}
 }
 
 func redirect(resWriter http.ResponseWriter, url string) {
 	resWriter.Header().Add("Location", url)
-	resWriter.WriteHeader(http.StatusPermanentRedirect)
+	resWriter.WriteHeader(http.StatusTemporaryRedirect)
 }
 
 func main() {
