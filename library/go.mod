@@ -1,4 +1,4 @@
-module golinkshortener
+module dev.knockoff/golinkshortener
 
 go 1.17
 

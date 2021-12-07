@@ -6,7 +6,7 @@ import (
 	"log"
 	"net/http"
 
-	"golinkshortener/src/provider"
+	"dev.knockoff/golinkshortener/src/provider"
 )
 
 type ServerHandler struct {
