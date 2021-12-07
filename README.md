@@ -5,7 +5,7 @@ This app is build to be lightweight in-company url shortener.
 The reason why YAML is because of it's kinda straightforward to do version control of the YAML file.
 In case we want a better performance, we can load YAML data into memcache and query for link through that instead.
 
-Written in Go. You can use build it locally or use Docker.
+Written in Go. You can build it locally or use Docker.
 
 ## Running using Docker
 ### Build docker image with command below:
