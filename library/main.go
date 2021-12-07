@@ -16,6 +16,7 @@ type ServerHandler struct {
 func (handler ServerHandler) ServeHTTP(resWriter http.ResponseWriter, req *http.Request) {
 	trimmedPath := req.URL.Path[1:]
 
+	fmt.Println("\n----------------------------")
 	fmt.Printf("Query for %s\n", trimmedPath)
 	url, err := handler.UrlProvider.Get(trimmedPath)
 
@@ -23,7 +24,7 @@ func (handler ServerHandler) ServeHTTP(resWriter http.ResponseWriter, req *http.
 		fmt.Printf("Redirecting for %s to %s\n", trimmedPath, url)
 		redirect(resWriter, url)
 	} else {
-		fmt.Printf("Error query for %s\n", trimmedPath)
+		fmt.Printf("Error query for %s\nError: %s\n", trimmedPath, err.Error())
 	}
 }
 

@@ -29,7 +29,7 @@ func (provider YamlUrlProvider) Get(key string) (string, error) {
 	if ok {
 		return link, nil
 	} else {
-		return "", KeyNotFoundError{}
+		return "", KeyNotFoundError{Key: key}
 	}
 }
 
