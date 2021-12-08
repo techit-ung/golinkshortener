@@ -1,9 +1,9 @@
 # A Simple Link Shortener
 A simple link shortener. Inspired by Google's go link story.
 
-This app is build to be lightweight in-company url shortener.
-The reason why YAML is because of it's kinda straightforward to do version control of the YAML file.
-In case we want a better performance, we can load YAML data into memcache and query for link through that instead.
+This app is built to be lightweight in-company url shortener.
+The reason why we use YAML is because of it's kinda straightforward to do version control of the YAML file.
+In case we want a better performance, we can load YAML data into memcache and query link through that instead.
 
 Written in Go. You can build it locally or use Docker.
 
